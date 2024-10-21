@@ -1,1 +1,6 @@
-{ "rewrites": [{ "source": "/nueva-clase", "destination": "/nueva-clase" }] }
+{
+    "rewrites": [
+      { "source": "/nueva-clase", "destination": "/api/nueva-clase" }
+    ]
+  }
+  
