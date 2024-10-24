@@ -1,7 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database');
 const Universidad = require('./Universidad');
-const Delegado = require('./Delegado');
 
 const Clase = sequelize.define('Clase', {
     nombre_clase: {
@@ -19,6 +18,15 @@ const Clase = sequelize.define('Clase', {
     duracion: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    foto_referencia:{
+      type: DataTypes.STRING
+    },
+    descripcion:{
+      type: DataTypes.STRING
+    },
+    red_social:{
+      type: DataTypes.STRING
     }
 
 }, {
@@ -27,8 +35,7 @@ const Clase = sequelize.define('Clase', {
 
 });
 
-// Relación con Universidad y Delegado
+// Relación con Universidad 
 Clase.belongsTo(Universidad, { foreignKey: 'universidad_id' });
-Clase.belongsTo(Delegado, { foreignKey: 'delegado_id' });
 
 module.exports = Clase;

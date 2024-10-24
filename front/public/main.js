@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
                   <h5 class="card-title">${clase.nombre_clase}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Profesor: ${clase.profesor}</h6>
                   <p class="card-text">
-                    <strong>Delegado:</strong> ${clase.Delegado.nombre} <br>
-                    <strong>Red Social:</strong> ${clase.Delegado.red_social || 'No disponible'} <br>
                     <strong>Universidad:</strong> ${clase.Universidad.nombre} <br>
                     <strong>Ubicación:</strong> ${clase.Universidad.ubicacion} <br>
                     <strong>Hora:</strong> ${clase.hora} <br>
