@@ -44,13 +44,13 @@ const CrearClase = () => {
     <Container>
       <Typography variant="h4" align="center">Crear Nueva Clase</Typography>
       <form onSubmit={handleSubmit}>
-        <TextField label="Nombre de la Clase" name="nombre_clase" fullWidth margin="normal" value={formData.nombre_clase} onChange={handleChange} />
-        <TextField label="Profesor" name="profesor" fullWidth margin="normal" value={formData.profesor} onChange={handleChange} />
-        <TextField label="Fecha y Hora" type="datetime-local" name="hora" fullWidth margin="normal" InputLabelProps={{ shrink: true }} value={formData.hora} onChange={handleChange} />
+        <TextField required label="Nombre de la Clase" name="nombre_clase" fullWidth margin="normal" value={formData.nombre_clase} onChange={handleChange} />
+        <TextField required label="Profesor" name="profesor" fullWidth margin="normal" value={formData.profesor} onChange={handleChange} />
+        <TextField required label="Fecha y Hora" type="datetime-local" name="hora" fullWidth margin="normal" InputLabelProps={{ shrink: true }} value={formData.hora} onChange={handleChange} />
         <TextField label="Duración (minutos)" type="number" name="duracion" fullWidth margin="normal" value={formData.duracion} onChange={handleChange} />
-        <TextField label="Foto de Referencia" name="foto_referencia" fullWidth margin="normal" value={formData.foto_referencia} onChange={handleChange} />  {/* Nuevo campo */}
-        <TextField label="Descripción" name="descripcion" fullWidth margin="normal" value={formData.descripcion} onChange={handleChange} />  {/* Nuevo campo */}
-        <TextField label="Red Social" name="red_social" fullWidth margin="normal" value={formData.red_social} onChange={handleChange} />  {/* Nuevo campo */}
+        {/*`<TextField label="Foto de Referencia" name="foto_referencia" fullWidth margin="normal" value={formData.foto_referencia} onChange={handleChange} /> `*/ }
+        <TextField label="Descripción" name="descripcion" fullWidth margin="normal" value={formData.descripcion} onChange={handleChange} />  
+        <TextField label="Red Social" name="red_social" fullWidth margin="normal" value={formData.red_social} onChange={handleChange} />  
         <FormControl fullWidth margin="normal" required>
           <InputLabel>Universidad</InputLabel>
           <Select
@@ -59,7 +59,7 @@ const CrearClase = () => {
           >
             {universidades.map((uni) => (
               <MenuItem key={uni.id} value={uni.id}>
-                {uni.nombre}
+                {uni.nombre + " - " +uni.direccion}
               </MenuItem>
             ))}
           </Select>
