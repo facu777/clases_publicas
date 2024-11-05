@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
 // Agregar una nueva clase
 router.post('/', async (req, res) => {
-  const { nombre_clase, profesor, hora, universidad_id, duracion } = req.body;
+  const { nombre_clase, profesor, hora, universidad_id, duracion, foto_referencia, descripcion, red_social} = req.body;
   console.log(req)
   if (!nombre_clase || !profesor || !hora || !universidad_id || !duracion) {
     console.log("Faltan campos")

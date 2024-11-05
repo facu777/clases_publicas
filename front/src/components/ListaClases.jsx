@@ -28,9 +28,9 @@ const ListaClases = () => {
             <Typography variant="body1">Profesor: {clase.profesor}</Typography>
             <Typography variant="body1">Hora: {new Date(clase.hora).toLocaleString()}</Typography>
             <Typography variant="body1">Duración: {clase.duracion} minutos</Typography>
-            {clase.foto_referencia && <img src={clase.foto_referencia} alt="Referencia" style={{ maxWidth: '100%' }} />} {/* Nuevo campo */}
-            <Typography variant="body1">Descripción: {clase.descripcion}</Typography>  {/* Nuevo campo */}
-            <Typography variant="body1">Red Social: {clase.red_social}</Typography>  {/* Nuevo campo */}
+            {clase.foto_referencia && <img src={clase.foto_referencia} alt="Referencia" style={{ maxWidth: '100%' }} />} 
+            <Typography variant="body1">Descripción: {clase.descripcion}</Typography>  
+            <Typography variant="body1">Red Social: {clase.red_social}</Typography>  
             <Typography variant="body1">Universidad: {clase.Universidad?.nombre}</Typography>
           </CardContent>
         </Card>
