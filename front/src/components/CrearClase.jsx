@@ -14,9 +14,9 @@ const CrearClase = () => {
     hora: '',
     duracion: '',
     universidad_id: '',
-    foto_referencia: '',  // Nuevo campo
-    descripcion: '',      // Nuevo campo
-    red_social: ''        // Nuevo campo
+    foto_referencia: '',  
+    descripcion: '',      
+    red_social: ''        
   });
   useEffect(() => {
     // Obtener universidades y delegados

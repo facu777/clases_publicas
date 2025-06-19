@@ -13,12 +13,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-// Rutas para el backend (API de clases)
 app.use('/api/clases', clasesRoutes);
 app.use('/api/universidades', universidadesRoutes);
 
 
-// Sincronizar modelos con la base de datos
 sequelize.sync().then(() => {
   console.log('Modelos sincronizados con la base de datos.');
 });

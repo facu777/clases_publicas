@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  back:
+    build: ./back
+    working_dir: /usr/src/app
+    volumes:
+      - ./back:/usr/src/app
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+    command: npm start
+  front:
+    build: ./front
+    working_dir: /usr/src/app
+    volumes:
+      - ./front:/usr/src/app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    command: npm start
