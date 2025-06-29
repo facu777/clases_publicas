@@ -1,22 +1,58 @@
-version: '3.8'
 services:
+  # Base de datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Mysql@123
+      MYSQL_DATABASE: clases_publicas
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./back/db/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Backend
   back:
     build: ./back
     working_dir: /usr/src/app
     volumes:
       - ./back:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - "3001:3001"
     environment:
       - NODE_ENV=development
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=Mysql@123
+      - DB_NAME=clases_publicas
+      - DB_PORT=3306
+    depends_on:
+      db:
+        condition: service_healthy
     command: npm start
+
+  # Frontend
   front:
     build: ./front
     working_dir: /usr/src/app
     volumes:
       - ./front:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=development
+      - REACT_APP_API_URL=http://localhost:3001
+    depends_on:
+      - back
     command: npm start
+
+volumes:
+  mysql_data:
