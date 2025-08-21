@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button, CssBaseline, Container } from '@mui/material';
 import CrearClase from './components/CrearClase';
 import ListaClases from './components/ListaClases';
+import CrearUniversidad from './components/CrearUniversidad';
+import ListaUniversidades from './components/ListaUniversidades';
 
 function App() {
   return (
@@ -17,8 +19,14 @@ function App() {
           <Button color="inherit" component={Link} to="/">
             Ver Clases
           </Button>
-          <Button color="inherit" component={Link} to="/crear-clase">
+          <Button color="inherit" component={Link} to="/clase">
             Crear Clase
+          </Button>
+          <Button color="inherit" component={Link} to="/universidades">
+            Universidades
+          </Button>
+          <Button color="inherit" component={Link} to="/universidad">
+            Nueva Universidad
           </Button>
         </Toolbar>
       </AppBar>
@@ -27,7 +35,9 @@ function App() {
       <Container sx={{ mt: 5 }}>
         <Routes>
           <Route path="/" element={<ListaClases />} />
-          <Route path="/crear-clase" element={<CrearClase />} />
+          <Route path="/clase" element={<CrearClase />} />
+          <Route path="/universidades" element={<ListaUniversidades />} />
+          <Route path="/universidad" element={<CrearUniversidad />} />
         </Routes>
       </Container>
     </Router>

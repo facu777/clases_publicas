@@ -17,11 +17,14 @@ router.post('/', async (req, res) => {
   const { nombre, especialidad, direccion } = req.body;
   
   try {
-    await Universidad.create({ nombre, especialidad, direccion });
-    res.redirect('/cargar-clases'); // Redirige después de cargar
+    const nuevaUniversidad = await Universidad.create({ nombre, especialidad, direccion });
+    res.status(201).json({
+      message: 'Universidad creada exitosamente',
+      universidad: nuevaUniversidad
+    });
   } catch (error) {
     console.error("Error al cargar universidad:", error);
-    res.status(500).send("Error al cargar universidad");
+    res.status(500).json({ error: 'Error al cargar universidad' });
   }
 });
 module.exports = router;
